@@ -1,0 +1,44 @@
+# Jupyter Book settings
+
+title: Python for Engineers
+author: Basile Marchand
+logo: media/logo-python.svg
+
+repository:
+  url: https://github.com/basileMarchand/python-for-engineers
+  branch: main
+  path_to_book: notebooks
+
+html:
+  use_repository_button: yes
+  use_edit_page_button: yes
+  use_issues_button: yes
+  use_edit_page_button: true
+  ###announcement: "My announcement!"
+  extra_footer: |
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  extra_navbar: |
+    <div>
+      <a href="https://twitter.com/BasileMarchand?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-text="Follow me on Twitter" data-show-count="false">Follow @BasileMarchand</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+###
+
+only_build_toc_files: true
+
+execute:
+  ##execute_notebooks: force
+  execute_notebooks: cache
+  allow_error: true
+
+sphinx:
+  config:
+    html_show_copyright: false
+    # from https://jupyterbook.org/en/stable/advanced/html.html#manually-specify-extra-files-folders-to-be-included-in-a-website
+    html_extra_path: ['media']
+
+# for raw <img> tags in markdown
+parse:
+  myst_enable_extensions:
+    - html_image
+    - dollarmath 
+    - amsmath 

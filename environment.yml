@@ -1,0 +1,7 @@
+name: m1psl
+dependencies:
+  - python >= 3.9
+  - pip
+  - wheel
+  - pip:
+    - -r requirement.txt

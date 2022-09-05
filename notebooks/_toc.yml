@@ -1,0 +1,21 @@
+format: jb-book
+root: 01_intro_and_setup.md
+parts:
+- caption: "Introduction and setup"
+  chapters:
+  - glob: 01_*
+- caption: "Base of Python"
+  chapters:
+  - glob: 0[1-3]_*
+- caption: "Clean code"
+  chapters:
+  - glob: 04_* 
+- caption: "Object oriented programming"
+  chapters:
+  - glob: 05_* 
+- caption: "Scientific stack"
+  chapters:
+  - glob: 0[6-8]_* 
+- caption: "Applications"
+  chapters:
+  - glob: 10_*
