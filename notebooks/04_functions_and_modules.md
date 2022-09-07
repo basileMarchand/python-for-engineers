@@ -583,7 +583,8 @@ slideshow:
 Now the question we can ask ourselves is how do we tell Python that there is a `myFunctions.py` file containing a set of functions that I want to use in my main program? The answer is simple, just use the `import` keyword. The `import` keyword has four modes of use: 
 
 The first one is the syntax below. In this case it is necessary to specify the name `myFunctions` each time you want to use a function contained in the `myFunctions.py` file 
-python 
+
+```python 
 import myFunctions
 ...
 myFunctions.aFunctionFromFile( args )
@@ -591,7 +592,7 @@ myFunctions.aFunctionFromFile( args )
 
 The second possible syntax is directly related to the fact that in general a developer is lazy and tries to write as few characters as possible. For this reason we can rename the function modules. 
 
-python 
+```python 
 import mesFunctions as mf
 ...
 mf.aFileFunction( args )
@@ -608,7 +609,7 @@ anOtherFunction( args2 )
 ```
 
 Finally, the last possible syntax is the one that allows you to import all the functions contained in a file and use them afterwards without needing to put the file prefix in front. 
-python 
+```python 
 from myFunctions import *
 ...
 aFunctionFromFile( args )
