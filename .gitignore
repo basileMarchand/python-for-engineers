@@ -1,2 +1,4 @@
 notebooks/_build
 .ipynb_checkpoints
+notebooks/backup_* 
+

@@ -1,9 +1,9 @@
 format: jb-book
-root: 01_intro_and_setup.md
+root: 00_intro.md
 parts:
-- caption: "Introduction and setup"
+- caption: "Setup"
   chapters:
-  - glob: 01_*
+  - glob: 01_setup.md
 - caption: "Base of Python"
   chapters:
   - glob: 0[1-3]_*
