@@ -11,25 +11,33 @@ kernelspec:
   name: python3
 ---
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "slide"}}
+
+**Programming Course** - ***Master 1 PSL - Science et Génie des Matériaux / Énergie*** 
+
+---------------
 
 # Variables and control structures
 
-**Basile Marchand (Centre des Matériaux - Mines ParisTech/CNRS/Université PSL)**
+**Basile Marchand (Centre des Matériaux- Mines ParisTech / CNRS / PSL University)**
 
-+++ {"lang": "en"}
+<div>
+<a href="https://twitter.com/BasileMarchand?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-text="Follow me on Twitter" data-show-count="false">Follow @BasileMarchand</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 ## Define and manipulate variables
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 ### Concretely, what is a variable?
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "fragment"}}
 
 In general, in computer science, a variable is a symbol associated with a value. The value in question can be of any type. Depending on the programming language considered, a variable can be typed (i.e. when it is declared it has an immutable type) or not (i.e. the value associated with the variable can change its type during the execution of the program). Python is a non-typed programming language. In other words if you declare a variable A that contains a string you can later in the program associate it with a number instead for example.
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 The Python language, compared to low level languages such as C, greatly simplifies the manipulation of variables. Indeed, to create a variable, we usually distinguish the declaration operation from the assignment operation. Typically in C++ the first step is to declare a variable A with its type. And in a second step using the `=` operator we assign to this variable a value of the corresponding type. For example to define an integer in C++ :   
 ```c
@@ -37,17 +45,11 @@ int value;
 value = 1;
 ```
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "fragment"}}
 
 In Python the declaration step is included in the assignment. Indeed since variables are not typed in Python they can't be declared in advance. In all rigor this is possible but is strictly useless given the internal mechanisms of the language.
 
-+++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
-
-La question que l'on peut alors se poser est où se situe concrètement la valeur associée à la variable dans l'ordinateur ? Dans un fichier ? Et non elle se situe dans la mémoire vive RAM. Comment cela fonctionne : 
-Lorsque dans un code Python on créé une variable A associée à une valeur d'un certain type (nombre flottant par exemple) la machinerie du langage va automatiquement demandée à l'ordinateur de lui donner une case dans la mémoire (la taille de la case dépend du type de la valeur que l'on veut y stocker). Le langage Python récupère alors un pointeur vers la case mémoire allouée (une adresse mémoire) et il associe à cette adresse mémoire la variable que l'on va manipuler. 
-Le langage Python est dis de haut niveau entre autre à cause de ce processus de création en mémoire des variables qui est automatisé et transparent pour l'utilisateur. Contrairement au langage de bas niveau, comme le C ou le FORTRAN par exemple où le programmeur doit explicitement demandé l'allocation d'une case mémoire avant d'y stocker une valeur.
-
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 The question we can then ask ourselves is where the value associated with the variable is actually located in the computer? In a file? 
 
@@ -56,11 +58,7 @@ No, it is located in the RAM memory. How it works:
 When in a Python code we create a variable A associated to a value of a certain type (floating number for example) the mechanism of the language will automatically ask the computer to give it a box in the memory (the size of the box depends on the type of the value we want to store). The Python language then retrieves a pointer to the allocated memory slot (a memory address) and associates the variable to be manipulated with this memory address. 
 The Python language is called high level because of this process of creating variables in memory which is automated and transparent for the user. Contrary to low level languages, like C or FORTRAN for example, where the programmer must explicitly ask for the allocation of a memory cell before storing a value.
 
-+++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
-
-*Astuce :* pour connaitre l'adresse en mémoire d'une variable en Python il suffit de faire :
-
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 *Tip:* to know the address in memory of a variable in Python you just have to do :
 
@@ -73,11 +71,11 @@ my_variable = 12.4    # we define a variable named my_variable and we associate 
 hex(id(my_variable))  # request the memory address in hexadecimal
 ```
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 ### How do you define a variable? Can we define everything as a variable?
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 In Python, as in a number of other languages, the assignment of a value to a variable (which in Python creates the variable if it does not exist) is done with the **=** symbol
 The syntax for all types is the following: 
@@ -118,7 +116,7 @@ Among the various recommendations contained in PEP8, the one concerning the nami
 my_variable
 ```
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 *Tip:* to know the type of a variable just use
 
@@ -130,13 +128,13 @@ slideshow:
 type(my_variable)
 ```
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "slide"}}
 
 ## The basic types (so not the only ones possible)!
 
 We will now review the different basic types available in Python. We will see later in the course that Python allows to define new additional types. We will also see that the use of modules makes it possible to handle other types such as matrices for example.
 
-+++ {"lang": "en"}
++++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
 
 ### Numbers: integers, floats and complexes
 
@@ -494,9 +492,15 @@ pi=3.14
 print( f"pi={pi} and pi*pi={pi*pi}")
 ```
 
-And since Python 3.8 you can : 
++++ {"slideshow": {"slide_type": "fragment"}}
+
+And since Python 3.8 you can :
 
 ```{code-cell} ipython3
+---
+slideshow:
+  slide_type: fragment
+---
 print( f"{pi=}")
 ```
 
@@ -686,8 +690,4 @@ However, be careful not to mix tabs and spaces in your code, otherwise you will 
 
 ```python
 TabError : inconsistent use of tabs and spaces in indentation
-```
-
-```{code-cell} ipython3
-
 ```

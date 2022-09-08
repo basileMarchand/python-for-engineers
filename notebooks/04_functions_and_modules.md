@@ -145,6 +145,10 @@ Address of mean_weight: {}
 So functions and variables have common aspects, so this implies that you can also pass a function as an argument to another function!!!
 
 ```{code-cell} ipython3
+---
+slideshow:
+  slide_type: fragment
+---
 def square(x):
     return x*x
 
@@ -448,6 +452,10 @@ NameError: name 'b' is not defined
 The following example illustrates the fact that within a function, Python sees the set of variables being defined in the statement block calling the function in question.
 
 ```{code-cell} ipython3
+---
+slideshow:
+  slide_type: fragment
+---
 def add_3(a):
     c = a + d
     print("c = {}".format(c))
