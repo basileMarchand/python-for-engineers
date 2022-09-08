@@ -13,9 +13,17 @@ kernelspec:
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "slide"}}
 
+**Programming Course** - ***Master 1 PSL - Science et Génie des Matériaux / Énergie*** 
+
+---------------
+
 # Functions and modules
 
-**Basile Marchand (Centre des Matériaux - Mines ParisTech/CNRS/Université PSL)**
+**Basile Marchand (Centre des Matériaux- Mines ParisTech / CNRS / PSL University)**
+
+<div>
+<a href="https://twitter.com/BasileMarchand?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-text="Follow me on Twitter" data-show-count="false">Follow @BasileMarchand</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "slide"}}
 
@@ -79,7 +87,7 @@ a_list = [ x+100 for x in range(10) ]
 the_sum = sum( a_list ) ## Call the function 
 print("the_sum = {}".format(the_sum))
 print("the_sum = {}")
-print(f "the_sum = { the_sum}")
+print(f"the_sum = {the_sum}")
 ```
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
@@ -108,7 +116,7 @@ def weight_average( values, weightings ):
 scores = [12,9,17,15]
 weight = [1, 2, 2, 3]
 
-s = weighted_average(notes, weight)
+s = weight_average(scores, weight)
 print("The weighted average is: {}".format(s))
 ```
 
@@ -122,7 +130,7 @@ slideshow:
   slide_type: fragment
 ---
 mean_weight = weight_average
-s_bis = mean_weight(grades, weight)
+s_bis = mean_weight(scores, weight)
 print("The weighted average is: {}".format(s_bis))
 ```
 
@@ -136,8 +144,8 @@ slideshow:
   slide_type: fragment
 ---
 print("""Address of mean_weight : {}
-Address of mean_weight: {}
-""".format(hex(id(mean_ponderee)), hex(id(mean_weight))))
+Address of weight_average: {}
+""".format(hex(id(mean_weight)), hex(id(weight_average))))
 ```
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
@@ -290,11 +298,11 @@ def function_arg_variable( args ):
     print("The function is called with {} arguments that have values {}".format( len(args), args))
     
 one_variable = 1
-an_other = False
-yet_an_other = [1,2,3]
-func_args = (one_variable, one_other, one_other_)
+another = False
+yet_another = [1,2,3]
+func_args = (one_variable, another, yet_another)
 function_arg_variable( func_args )
-func_args_2 = (one_variable, another_variable)
+func_args_2 = (one_variable, another)
 function_arg_variable( func_args_2 )
 ```
 
@@ -311,12 +319,12 @@ def function_arg_variable_star( *args ):
     print("The function is called with {} arguments that have {} values".format( len(args), args))
     
 one_variable = 1
-an_other = False
-again_an_other = [1,2,3]
+another = False
+yet_another = [1,2,3]
 ### We call directly the function with the arguments
 ### without creating a tuple
-function_arg_variable_star( one_variable, one_other, one_other_ again )
-function_arg_variable_star( one_variable, another_variable )
+function_arg_variable_star( one_variable, another, yet_another )
+function_arg_variable_star( one_variable, another )
 ```
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
@@ -365,17 +373,17 @@ The use of the `kwargs` syntax is as illustrated below:
 slideshow:
   slide_type: fragment
 ---
-def function_arg_variable_names( **kwargs ):
+def function_arg_variable_named( **kwargs ):
     print("The function is called with {} arguments that have values {}".format( len(kwargs), kwargs))
     print("kwargs is of type : {}".format(type(kwargs)))
     
 one_variable = 1
-an_other = False
-again_an_other = [1,2,3]
+another = False
+yet_another = [1,2,3]
 ### We call directly the function with the arguments
 ### without creating a tuple
-function_arg_variable_names( my_arg_1=one_variable, my_arg_2=another, my_arg_3=another)
-function_arg_variable_nommes( my_arg_1=a_variable, my_arg_3=also_an_other )
+function_arg_variable_named( my_arg_1=one_variable, my_arg_2=another, my_arg_3=another)
+function_arg_variable_named( my_arg_1=one_variable, my_arg_3=yet_another )
 ```
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "fragment"}}
@@ -497,7 +505,7 @@ slideshow:
   slide_type: fragment
 ---
 d = 10
-add_3(one_value)
+add_3(a_value)
 ```
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}

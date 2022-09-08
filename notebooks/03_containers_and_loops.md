@@ -13,9 +13,17 @@ kernelspec:
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "slide"}}
 
+**Programming Course** - ***Master 1 PSL - Science et Génie des Matériaux / Énergie*** 
+
+---------------
+
 # Containers and loops
 
-***Basile Marchand (Centre des Matériaux - Mines ParisTech/CNRS/Université PSL)***
+**Basile Marchand (Centre des Matériaux- Mines ParisTech / CNRS / PSL University)**
+
+<div>
+<a href="https://twitter.com/BasileMarchand?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-text="Follow me on Twitter" data-show-count="false">Follow @BasileMarchand</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
 
@@ -127,7 +135,7 @@ Accessing the value of a list is done in the same way as for tuples, i.e. using 
 slideshow:
   slide_type: fragment
 ---
-une_liste = [10, "une_string", 1.e-05, False]
+a_list = [10, "une_string", 1.e-05, False]
 print(type(a_list))
 ```
 
@@ -163,8 +171,8 @@ Among the other actions that can be performed on lists and that can make life ea
 slideshow:
   slide_type: fragment
 ---
-print( 3 in une_liste )
-print( "une_string" in une_liste )
+print( 3 in a_list )
+print( "une_string" in a_list )
 ```
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "fragment"}}
@@ -176,7 +184,7 @@ To access the index of an element in a list, use the **index** command
 slideshow:
   slide_type: fragment
 ---
-une_liste.index("une_string")
+a_list.index("une_string")
 ```
 
 +++ {"lang": "en", "slideshow": {"slide_type": "subslide"}}
@@ -211,7 +219,7 @@ slideshow:
   slide_type: fragment
 ---
 a_list[0] = -1
-print(one_list)
+print(a_list)
 ```
 
 ```{code-cell} ipython3
@@ -220,7 +228,7 @@ slideshow:
   slide_type: subslide
 ---
 a_list[3] = [0,1]
-print(one_list)
+print(a_list)
 ```
 
 ```{code-cell} ipython3
@@ -229,7 +237,7 @@ slideshow:
   slide_type: fragment
 ---
 a_list[:2] = [0,1]
-print(one_list)
+print(a_list)
 ```
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
@@ -251,8 +259,8 @@ print(a_list)
 slideshow:
   slide_type: fragment
 ---
-one_list.append( 10000 )
-print(one_list)
+a_list.append( 10000 )
+print(a_list)
 ```
 
 ```{code-cell} ipython3
@@ -274,8 +282,8 @@ And if you want to delete elements of a list you can use the **remove** command 
 slideshow:
   slide_type: fragment
 ---
-one_list.remove(1.e-5)
-print(one_list)
+a_list.remove(1.e-5)
+print(a_list)
  
 ```
 
@@ -284,7 +292,7 @@ print(one_list)
 slideshow:
   slide_type: fragment
 ---
-del une_liste[1]
+del a_liste[1]
 print(a_list)
 ```
 
@@ -316,8 +324,8 @@ We can see that the modification we made in list_b is also reflected in list_a. 
 slideshow:
   slide_type: fragment
 ---
-print(hex(id(liste_a)))
-print(hex(id(liste_b)))
+print(hex(id(list_a)))
+print(hex(id(list_b)))
 ```
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
@@ -396,7 +404,7 @@ slideshow:
   slide_type: fragment
 ---
 print(un_dict)
-un_dict["new_key"] = "new_val
+un_dict["new_key"] = "new_val"
 print(un_dict)
 ```
 
