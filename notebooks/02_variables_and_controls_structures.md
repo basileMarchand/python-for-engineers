@@ -451,7 +451,7 @@ res = string_a + " " + string_b
 print(res)
 ```
 
-+++ {"lang": "fr", "slideshow": {"slide_type": "fragment"}}
++++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
 
 *Formatting a string:*
 

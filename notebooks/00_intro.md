@@ -88,3 +88,15 @@ The objective of this course is to give you the necessary basics in Python that 
 No particular pre-requisite is necessary for the good understanding of the course, except for knowing how to use a computer. The course is divided into 6 sessions of 3 hours each. The evaluation of the module is done in two parts: 
 * 30% of the grade is based on participation, attendance and investment during the practical sessions
 * 70% of the grade is based on the realization of a project in pairs (the subject of which will be given at the penultimate session) which will be the subject of a defense (about 20 minutes).
+
++++ {"slideshow": {"slide_type": "subslide"}}
+
+from an organizational point of view, the courses are online at the following address 
+
+[http://python.bmarchand.fr](http://python.bmarchand.fr)
+
+The idea is that before the end of each week I send you by mail which part of the course will be treated in the next session; you read the course in advance and so at the beginning of the session I just do a question and answer session and during the session we only do practice with practical work on computer. 
+
+```{code-cell} ipython3
+
+```
