@@ -459,7 +459,7 @@ if "new_key" in un_dict.keys():
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "subslide"}}
 
-### No more? No matrix-vectors a la Matlab ?
+### No more? No matrix-vectors like with Matlab ?
 
 So we have just done the tour of the main containers available natively in Python. The question that you must certainly ask yourself is how I can do simulation with Python and therefore manage matrices, vectors, ... Indeed in native Python there is no notion of vectors or matrices as in Matlab which only manages that. 
 
