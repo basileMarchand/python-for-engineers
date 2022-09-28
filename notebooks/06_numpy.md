@@ -22,11 +22,17 @@ set_matplotlib_formats('svg')
 
 +++ {"lang": "fr", "slideshow": {"slide_type": "slide"}}
 
+**Programming Course** - ***Master 1 PSL - Science et Génie des Matériaux / Énergie*** 
+
+---------------
+
 # Introduction to Numpy
 
------------------------------------------
+**Basile Marchand (Centre des Matériaux- Mines ParisTech / CNRS / PSL University)**
 
-***Basile Marchand (Centre des Matériaux @ Mines ParisTech/CNRS/Université PSL)***
+<div>
+<a href="https://twitter.com/BasileMarchand?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-text="Follow me on Twitter" data-show-count="false">Follow @BasileMarchand</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
 
 +++ {"lang": "en"}
 
