@@ -162,14 +162,9 @@ The objective of this exercise is to redo exercise 1 using the *inheritance* con
 
 The objective here is to repeat exercise 1 on functions, now using numpy as much as possible
 
-+++ {"lang": "fr"}
++++
 
-### Image manipulation (thanks to V. Roy for the subject)
-
-```{code-cell} ipython3
-import numpy as np
-from matplotlib import pyplot as plt
-```
+## Images 
 
 +++ {"lang": "fr", "tags": ["framed_cell"]}
 
@@ -194,38 +189,105 @@ whereas the `save` function in `PIL` does
 
 **don't forget to use the help in case of problem.**
 
-+++ {"lang": "en"}
+```{code-cell} ipython3
+import numpy as np
+from matplotlib import pyplot as plt
+```
 
-#### Sum of the RGB values of an image
+* in a color image, the pixels are represented by their *mix* in the 3 primary colors: `red`, `green`, `blue`  
+* if the pixel is `(r, g, b) = (255, 0, 0)`, it contains only red information, it is displayed as red
+* the display on the screen, of a color image `rgb`, uses the rules of the additive synthesis  
+`(r, g, b) = (255, 255, 255)` gives the color white    
+`(r, g, b) = (0, 0, 0)` gives the black color    
+`(r, g, b) = (255, 255, 0)` gives the color yellow ...
+
++++
+
+#### Exercise 1 
+
++++
+
+1. Create a whiteboard, 91 pixels on a side, of unsigned 8-bit integers and display it  
+   hints:   
+   . the array need not be initialized at this point  
+   . you need to be able to store 3 uint8 per pixel to store the 3 colors
+1. Turn it into a blackboard (in one slicing) and display it
+1. Turn it into a yellow array (in one slicing) and display it
+1. Display the RGB values of the first pixel of the image, and the last
+1. Make a grid of one blue line, every 10 rows and columns and display it
+
++++
+
+#### Exercise 2
+
++++
+
+1. With the function `plt.imread` read the file `les-mines.jpg` or any other image  
+or any other image - *just pay attention to the size*.
+
+1. Check if the object is editable with `im.flags.writeable`.  
+if it is not, copy it
+
+1. Display the image 
+
+1. What is the type of the object created?
+
+1. What is the size of the image?
+
+1. What is the size of the image in height and width?
+
+1. What is the number of bytes used per pixel?  
+
+1. What is the type of the pixels?  
+(two types for the pixels: 8-bit unsigned integers or 64-bit floats)
+
+1. What are its maximum and minimum pixel values?
+
+1. Show the 10 x 10 pixel rectangle at the top of the image
+
++++
+
+#### Exercise 3
+
++++
+
+**reminder** RGB-A
+
+* you can indicate, in a fourth value of the pixels, their transparency
+* this 4th channel is called the alpha channel
+* the values go from `0` for transparent to `255` for opaque
+
+1. Rereading the initial image (without copying it)
+
+1. Create an empty array of the same height and width as the image, of the same type as the original image, with a fourth channel
+
+1. Copy the original image into it, set the fourth channel to `128` and display the image
 
 +++ {"lang": "fr"}
 
-0. Read the image `the-mines.jpg`
+#### Exercise 4 - gray scale
 
-1. Create a new array `numpy.ndarray` by summing **with the operator `+`** the RGB values of the pixels in your image  
++++
 
-2. Display the image (not great), its maximum and its type
+1. Read the image `les-mines.jpg`
 
-3. Create a new array `numpy.ndarray` by summing **with the aggregation function `np.sum`** the RGB values of the pixels in your image
+1. Pass its values in floats between 0 and 1 and display it  
 
-4. Display the image, its maximum and its type
+1. Transform the image into two grayscale images :   
+a. by averaging the R, G, B values for each pixel  
+b. using the 'Y' correction (which corrects the constrate) based on the formula  
+   G = 0.299 * R + 0.587 * V + 0.114 * B
 
-5. Why the difference? Use the `np.sum` help
+1. Square the pixels and display the image
 
-6. Switch the image to 8-bit unsigned integer grayscale  
-(in the way you prefer)
+1. Root the pixels and display it
 
-7. Replace in the grayscale image,   
-values >= 127 with 255 and those below with 0  
-Display the image with a grayscale color map  
-you can use the `numpy.where` function
-
-8. with the `numpy.unique` function  
-look at the different values you have in your black and white image
+1. Convert the grayscale image to 8-bit unsigned integer type and display it  
+in grayscale
 
 +++ {"lang": "en"}
 
-#### Sepia image
+#### Exercice 5 - sepia
 
 +++ {"lang": "fr"}
 
@@ -244,17 +306,7 @@ to avoid having, for example, 256 becoming 0)
 
 +++ {"lang": "en"}
 
-**Exercise**
-
-1. Make a function that takes as argument an RGB image and renders a sepia RGB image  
-
-1. Switch your patchwork to sepia  
-Read the file `media/patchwork-all.jpg` if you don't have a custom file
-2. Change the image `media/the-mines.jpg` to sepia
-
-+++ {"lang": "en"}
-
-#### Compress the image with SVD
+#### Exercise 6 - Compress the image with SVD
 
 +++ {"lang": "fr"}
 
