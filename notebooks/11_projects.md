@@ -42,8 +42,8 @@ The project is to be carried out in pairs. The evaluation of this project is bro
 
 Important dates are as follows:
 
-* **23/11/2020** before 12:00 pm: Send the code by email to basile.marchand@minesparis.psl.eu
-* **24/11/2020** defenses
+* **23/11/2022** before 12:00 pm: Send the code by email to basile.marchand@minesparis.psl.eu
+* **24/11/2022** defenses
 
 +++
 
