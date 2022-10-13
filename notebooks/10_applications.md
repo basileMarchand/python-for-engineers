@@ -27,6 +27,15 @@ kernelspec:
    1. reverse the string: ! ypmun te nohtyp eroda'j
    1. cut the string to keep only "jaoepto tnmy!"
 
+```{code-cell} ipython3
+la_string = "J'adore Python et Numpy !"
+print(la_string[0])
+print(la_string[-1])
+print(la_string[2:7])
+print(la_string[::-1])
+print(la_string[::2])
+```
+
 +++ {"lang": "fr"}
 
 ## Exercises on strings
@@ -44,6 +53,16 @@ kernelspec:
    1. split the string to obtain a list of lines (method **split**)
    1. display each line with a for loop by prefixing it with its number
 
+```{code-cell} ipython3
+another = "hello World !"
+print(f"{another} ({len(another)})")
+another2 = "Byebye!"
+full = another + another2
+print(full)
+print(full.capitalize())
+print(full.upper())
+```
+
 +++ {"lang": "en"}
 
 ## Exercise on lists
@@ -56,6 +75,25 @@ kernelspec:
    1. concatenate the two lists
    1. print with a **for** the elements of the list
 
+```{code-cell} ipython3
+une_liste = [1, "a", 2., True]
+une_liste[0] = 1000 
+sous_liste = une_liste[::2] ### [1000, 2.]
+print(sous_liste)
+## "a" est dans la liste ? 
+print("a" in une_liste)
+## False est dans la liste
+print(False in une_liste)
+une_autre = [False, 31]
+full_liste = une_liste + une_autre
+print(full_liste)
+for i, x in enumerate(full_liste):
+    print(f"{i} -> {x}")
+    
+for i in range(len(full_liste)):
+    print( full_liste[i] )
+```
+
 +++ {"lang": "en"}
 
 ## Exercise on dictionaries
@@ -65,6 +103,21 @@ kernelspec:
    1. test if a person is in the dictionary and if so modify his age
    1. Apply the **items** function to the dictionary, what does it return ?
    1. print with a **for** the names and the age of all the people in the dictionary
+
+```{code-cell} ipython3
+ages = {"Basile": 31, "Marta": 34}
+print( type(ages))
+
+## Basile est dans dictionnaires 
+print(ages.keys())
+print( "Basile" in ages.keys() )
+
+print("Toto" in ages.keys())
+
+print( ages.items() )
+for key, value in ages.items():
+    print(f"{key} a {value} ans")
+```
 
 +++ {"lang": "fr"}
 
@@ -164,7 +217,7 @@ The objective here is to repeat exercise 1 on functions, now using numpy as much
 
 +++
 
-## Images 
+## Images
 
 +++ {"lang": "fr", "tags": ["framed_cell"]}
 
@@ -203,7 +256,7 @@ from matplotlib import pyplot as plt
 
 +++
 
-#### Exercise 1 
+#### Exercise 1
 
 +++
 
@@ -216,7 +269,29 @@ from matplotlib import pyplot as plt
 1. Display the RGB values of the first pixel of the image, and the last
 1. Make a grid of one blue line, every 10 rows and columns and display it
 
-+++
+```{code-cell} ipython3
+img = np.zeros((91,91,3), dtype=np.uint8 )
+#plt.figure()
+#plt.imshow( img )
+
+img_white = img + 255
+#plt.figure()
+#plt.imshow( img_white )
+
+## yellow (255, 255, 0)
+img_yellow = img.copy() 
+img_yellow[:,:,0:2] = 255
+#plt.figure()
+#plt.imshow( img_yellow )
+
+print(f"First pixel values: {img_yellow[0,0,:]}")
+print(f"Last pixel values: {img_yellow[-1,-1,:]}")
+
+img_yellow[::10,:,:] = (0, 0, 255)
+img_yellow[:,::10,:] = (0, 0, 255)
+plt.figure()
+plt.imshow(img_yellow)
+```
 
 #### Exercise 2
 
@@ -245,7 +320,22 @@ if it is not, copy it
 
 1. Show the 10 x 10 pixel rectangle at the top of the image
 
-+++
+```{code-cell} ipython3
+img = plt.imread( "media/les-mines.jpg")
+plt.imshow( img )
+print(f"editable: {img.flags.writeable}")
+if not img.flags.writeable:
+    img2 = np.copy(img)
+else:
+    img2 = img 
+    
+print(f"Image {img2.shape[0]}x{img2.shape[1]} (height x width)")
+print(f"Number of bytes for one pixel: {img2.itemsize}")
+print(f"Pixel type: {img2.dtype}")
+print(f"Min pixel: {img2.min()} - Max pixel: {img2.max()}")
+plt.figure()
+plt.imshow( img2[:10, :10,:])
+```
 
 #### Exercise 3
 
@@ -262,6 +352,18 @@ if it is not, copy it
 1. Create an empty array of the same height and width as the image, of the same type as the original image, with a fourth channel
 
 1. Copy the original image into it, set the fourth channel to `128` and display the image
+
+```{code-cell} ipython3
+img = plt.imread("media/les-mines.jpg")
+alpha_img = np.empty( (img.shape[0], img.shape[1], 4), dtype=np.uint8)
+alpha_img[:,:,:3] = img
+alpha_img[:,:,3] = 128 
+plt.imshow( alpha_img )
+plt.figure()
+nx,ny = alpha_img.shape[:2]
+alpha_img[:(nx//2),:(ny//2),3] = 255
+plt.imshow(alpha_img)
+```
 
 +++ {"lang": "fr"}
 
@@ -318,9 +420,9 @@ In this exercise the objective is to compress a grayscale image using an SVD (Si
 
 +++ {"lang": "en"}
 
-As a reminder, the SVD decomposition of a matrix $\mathbf{A} \in \mathbb{R}^{mathtimes n}$ is written as follows: 
+As a reminder, the SVD decomposition of a matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$ is written as follows: 
 
-$$ \mathbf{A} = \mathbf{U}cdot\mathbf{Sigma}cdot\mathbf{V} $$
+$$ \mathbf{A} = \mathbf{U}\cdot\mathbf{\Sigma}\cdot\mathbf{V} $$
 
 With $\mathbf{U}\in \mathbb{R}^{m\times m}$, $\mathbf{\Sigma}\in \mathbb{R}^{m\times n}$ a diagonal matrix of singular values and $\mathbf{V} \in \mathbb{R}^{n\times n}$.
 
@@ -339,82 +441,6 @@ Draw the evolution of the singular values of the image.
 For different truncations ($k=\lbrace 1,5,10,15,20,30,50,100 \rbrace$) reconstruct the image, display it and compute the compression ratio obtained.
 
 +++ {"lang": "fr"}
-
-#### Solving a system of N springs
-
-```{code-cell} ipython3
-from IPython.display import IFrame
-
-IFrame("./media/spring.pdf", width=600, height=300)
-```
-
-+++ {"lang": "fr"}
-
-The objective is to determine by a matrix approach the response of the system to an effort $F$. 
-
-The formulation of the problem must therefore be reduced to the resolution of a problem of the form 
-
-$$ \mathbf{K} \cdot \mathbf{u} = \mathbf{F}$$ 
-
-With $\mathbf{K} \in \mathbb{R}^{M}$, $\mathbf{u} \in \mathbb{R}^{M}$, $\mathbf{F} \in \mathbb{R}^{M}$ and $M$ the number of points in the system.
-
-+++ {"lang": "fr"}
-
-For this we recall that the potential energy of the system can be expressed in the following form: 
-
-$$ E_p = \frac{1}{2} \sum_{i=1}^{N} \left( u_{i,1} - u_{i,0} \right)\cdot k_{i} \cdot \left( u_{i,1} - u_{i,0} \right) $$
-
-With $u_{i,0}$ the displacement of the first attachment node of the $i$-th spring and $u_{i,1}$ the displacement of the second attachment node of the $i$-th spring.
-
-This potential energy can be written in the following matrix form: 
-
-$$ E_p = \frac{1}{2} \mathbf{U}^T \cdot \mathbf{K} \cdot \mathbf{U} $$ 
-
-Using then the potential energy theorem we can write that 
-
-$$ \mathbf{K} \cdot \mathbf{U} = \mathbf{F} $$
-
-+++ {"lang": "fr"}
-
-**Question 1:** 
-
-
-From the expression of the potential energy of a spring, define the elementary stiffness matrix.
-
-+++ {"lang": "fr"}
-
-**Question 2 :** 
-
-Use the stiffness matrix of a spring to construct the global $\mathbf{K}$ matrix. To do this, use the notion of connectivity table. As a reminder, the connectivity table is a list $L$ such that the $i$-th element of $L$ is the doublet of the indices of the spring's attachment points.
-
-+++ {"lang": "en"}
-
-**Question 3:**
-
-Construct the second member $F$.
-
-+++ {"lang": "fr"}
-
-**Question 4 :** 
-    
-Solve the linear system
-
-+++ {"lang": "fr"}
-
-**Bonus :** 
-
-Using matplotlib, visualize the profile of the matrix $\mathbf{K}$:  
-
-``python 
-import matplotlib.pyplot as plt 
-plt.imshow( K ) 
-plt.colorbar()
-plt.show()
-```
-
-What can we conclude from this? What improvement can be made to speed up the resolution of the problem?
-
-+++ {"lang": "en"}
 
 ## Scipy exercises
 
@@ -469,13 +495,13 @@ Determine the evolution of $u(t)$ on the interval $t \in [0, 0.02]$ for $R=1000\
 
 As a reminder: 
 $$q = \frac{1}{R} \sqrt{ \frac{L}{C} } \; ; \begin{cases} 
-q = \dfrac{1}{2} & critical
-q < \dfrac{1}{2} & aperiodiue 
-q > \dfrac{1}{2} & pseudo-periodic 
+q = \dfrac{1}{2} & critical \\
+q < \dfrac{1}{2} & aperiodiue  \\
+q > \dfrac{1}{2} & pseudo-periodic \\ 
 \end{cases}
 $$
 
-+++ { "lang": "fr"}
++++ {"lang": "fr"}
 
 If you want to use `ipywidgets` (you have to install it via conda) you can make an interactive graph with the value of $L$.
 
@@ -493,7 +519,7 @@ $$ x - e\cdot \sin x = m $$
 
 **Question 1:** 
 
-Using `scipy` find the solution of the Kepler equation in the case where $e=frac{1}{2}$ and $m=1$. Check that the solution found by scipy is correct.
+Using `scipy` find the solution of the Kepler equation in the case where $e=\frac{1}{2}$ and $m=1$. Check that the solution found by scipy is correct.
 
 +++ {"lang": "fr"}
 
@@ -506,7 +532,7 @@ Let's consider the RC circuit previously studied.
 We will try to identify the parameter R of the system from "experimental" data. 
 The experimental data in question are given in the file `notebook/data/exp_data_rc.dat`. If we represent these data we obtain the following curve:
 
-``{code-cell} ipython3
+```{code-cell} ipython3
 import matplotlib.pyplot as plt 
 import numpy as np
 import pathlib as pl 
@@ -535,3 +561,7 @@ Using `scipy.optimize` identify the value of the R parameter.
 
 **Question 3:** 
 Plot on the same graph the experimental data and the model result for the identified value of $R$.
+
+```{code-cell} ipython3
+
+```
