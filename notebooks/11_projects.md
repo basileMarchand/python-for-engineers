@@ -11,7 +11,6 @@ kernelspec:
   name: python3
 ---
 
-
 **Programming Course** - ***Master 1 PSL - Science et Génie des Matériaux / Énergie*** 
 
 ---------------
@@ -71,7 +70,7 @@ you want)
 4. From the previous curves, identify the material parameters requested previously.
 5. Synthesize the results in a "pretty" Python display.
 
-The data to be used can be downloaded at the following address http://bmarchand.fr/cours/sgm/projet1.tar.gz
+The data to be used can be downloaded at the following address [http://bmarchand.fr/download/data/projet1.tar.gz](http://bmarchand.fr/download/data/projet1.tar.gz)
 
 ### Notes:
 
@@ -111,7 +110,7 @@ The expected mode of operation is as follows:
 4. Synthesize the results into a "pretty" Python display.
 
 
-The data to be used for this project can be downloaded at http://bmarchand.fr/cours/sgm/projet2.tar.gz
+The data to be used for this project can be downloaded at [http://bmarchand.fr/download/data/projet2.tar.gz](http://bmarchand.fr/download/data/projet2.tar.gz)
 
 ### Notes
 
@@ -147,7 +146,7 @@ The expected mode of operation is as follows:
 The diffusion reaction model considered in this project is the Gray-Scott model [GrayScott1983].
 
 
-$$\begin{cases} \frac{\partial u }{\partial t} = r_u\left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) - u\cdot v^2 + f\cdot (1 - u ) 
+$$\begin{cases} \frac{\partial u }{\partial t} = r_u\left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) - u\cdot v^2 + f\cdot (1 - u )  \newline
 \frac{\partial v}{\partial t} = r_u \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right) + u\cdot v^2 + (f+k) v
 \end{cases} $$
 
@@ -172,7 +171,7 @@ $$
 The problem to solve is to determine the evolution of $u(x,y,t)$ and $v(x,y,t)$. To do this, we must solve the following system of partial differential equations:
 
 $$
-   \begin{cases} \frac{\partial u }{\partial t} = r_u\left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) - u\cdot v^2 + f\cdot (1 - u )
+   \begin{cases} \frac{\partial u }{\partial t} = r_u\left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) - u\cdot v^2 + f\cdot (1 - u ) \\
    \frac{\partial v}{\partial t} = r_u \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right) + u\cdot v^2 + (f+k) v
    \end{cases}
    $$
@@ -188,13 +187,11 @@ $$
 $$
 
 
-$$\left. \frac{\partial^2 u }{\partial x^2}\right\vert_{x=x_{i}, y=y_j,t=t_k} \simeq \frac{1}{\Delta x ^2} \left( u(x_i + \Delta x ,y_j, t_k ) - 2u(x_i ,y_j, t_k )  + u(x_\
-i-\Delta x,y_j, t_k ) \right)
+$$\left. \frac{\partial^2 u }{\partial x^2}\right\vert_{x=x_{i}, y=y_j,t=t_k} \simeq \frac{1}{\Delta x ^2} \left( u(x_i + \Delta x ,y_j, t_k ) - 2u(x_i ,y_j, t_k )  + u(x_i-\Delta x,y_j, t_k ) \right)
 $$
 
 
-$$\left. \frac{\partial^2 u }{\partial y^2}\right\vert_{x=x_{i}, y=y_j,t=t_k} \simeq \frac{1}{\Delta y ^2} \left( u(x_i, y_j +\Delta y, t_k ) - 2u(x_i ,y_j, t_k )  + u(x_i\
-,y_j -  \Delta y, t_k ) \right)$$
+$$\left. \frac{\partial^2 u }{\partial y^2}\right\vert_{x=x_{i}, y=y_j,t=t_k} \simeq \frac{1}{\Delta y ^2} \left( u(x_i, y_j +\Delta y, t_k ) - 2u(x_i ,y_j, t_k )  + u(x_i,y_j -  \Delta y, t_k ) \right)$$
 
 3. From the previous formulas and by re-injecting them into the system of equations to be solved we can easily determine the expression of a system that can be solved
 read numerically.
@@ -409,7 +406,7 @@ For information there is what is needed in python to very easily pieces of map a
 
 ## Handling PDF files 
 
-Make a Python program that allows to open a PDF file and add its name and signature on a page of the file at a position X,Y specified by the user (ideally by a mouse click) 
+Make a Python program that allows to open a PDF file and add its name and signature on a page of the file at a position X,Y specified by the user (ideally by a mouse click)
 
 +++
 
